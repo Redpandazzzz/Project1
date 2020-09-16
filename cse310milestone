@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#pragma warning(disable:4996)
+
+
+int main() {
+
+	FILE* file;
+	int lines;
+
+	file = fopen("haiku1.txt", "r");
+
+	char* lpter;
+	char array[150];
+	char* lineptrp[30];
+
+
+	unsigned len = 0;
+
+	int nlines = 0;
+
+	while ((fgets(array, 150, file)) != NULL)
+	{
+		len = strlen(array);
+		array[len - 1] = '\0';
+		lpter = (char*)malloc(len);
+		strcpy(lpter, array);
+		lineptrp[nlines++] = lpter;
+
+	}
+
+	
+	for (int i = 0; i < nlines; i++)
+		printf("%s\n", lineptrp[0]);
+			
+	
+
+
+}
+
